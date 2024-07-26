@@ -125,7 +125,7 @@ export default function Home() {
       <div className="provide-themes-wrapper">
         <div className="provide-themes-block">
           <div>Explore our premium services designed for seamless customization. Stunning works for
-            all your application needs. It's Not That We Use Technology, We Live Technology.</div><Link href="#best-service" className="secondary-button w-inline-block">
+            all your application needs. It&#39;s Not That We Use Technology, We Live Technology.</div><Link href="#best-service" className="secondary-button w-inline-block">
             <div>Read More</div>
             <div style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} className="secondary-button-arrow">
               <div></div>
@@ -174,7 +174,7 @@ export default function Home() {
                   <div className="service-text-block">
                     <h3 className="service-list-heading">Website Design</h3>
                     <p className="service-description">Discover the artistry of our website designs,
-                      meticulously crafted to reflect your brand's essence and captivate your
+                      meticulously crafted to reflect your brand&#39;s essence and captivate your
                       audience. With a focus on user experience and cutting-edge aesthetics, we
                       transform your vision into a captivating digital reality.</p>
                   </div>
@@ -192,7 +192,7 @@ export default function Home() {
                   <div className="service-text-block">
                     <h3 className="service-list-heading">Application Development &amp; Design</h3>
                     <p className="service-description">Crafting seamless digital experiences that marry
-                      intuitive user interfaces with captivating aesthetics. Elevate your brand's
+                      intuitive user interfaces with captivating aesthetics. Elevate your brand&#39;s
                       online presence with our expert Application design services.</p>
                   </div>
                 </div>
@@ -271,7 +271,7 @@ export default function Home() {
           </div>
           <div style={{opacity: 1}} className="about-text">
             <div>Our journey began with a passion for blending innovation,
-              <span className="about-gradient-text">aesthetics, and functionality to bring our clients'
+              <span className="about-gradient-text">aesthetics, and functionality to bring our clients&#39;
                 digital
                 dreams to life.</span>
             </div>
