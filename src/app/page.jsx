@@ -6,13 +6,30 @@ import '../../public/assets/css/custom.css'
 import '../../public/assets/css/responsive.css'
 import { message } from "antd"
 import { useState } from "react"
+import Cursor from "@/components/Cursor"
+import Tilt from "vanilla-tilt-react";
+import Topbar from "@/components/Topbar"
 
 export default function Home() {
-  const [formData, setFormData] = useState({f1:'', f2: '', f3: '', f4: ''})
-  const handleFormSubmit = (e) => {
+  const [formData, setFormData] = useState({name:'', email: '', service: '', message: ''})
+  const handleFormSubmit = async (e) => {
     e.preventDefault()
-    message.success('Your concern has been sent to Sofezza Core')
-    setFormData({f1:'', f2: '', f3: '', f4: ''})
+    fetch('/api/contactus', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      message.success(response.message)
+      setFormData({name:'', email: '', service: '', message: ''})
+    })
+    .catch( error => {
+      message.error('Failed to send your concern')
+    })
   }
 
   const handleChange = (e) => {
@@ -21,69 +38,9 @@ export default function Home() {
 
   return (
     <>
+    <Cursor />
       <div>
-  <section className="sofezza_menu pt-15">
-    <div className="navbar-no-shadow">
-      <div data-animation="default" data-collapse="medium" data-duration={400} data-easing="ease" data-easing2="ease" role="banner" className="nav-container w-nav">
-        <div className="nav-padding-block">
-          <div className="navbar-wrapper">
-            <Link href="#" className="navbar-logo w-nav-brand" style={{width: '66%'}} >
-            <Image  width={200} height={200} loading="lazy" src="/assets/images/sofezza_logo.png" alt="logo" style={{width: '30%'}} /></Link>
-            <nav role="navigation" className="nav-menu-wrapper w-nav-menu">
-              <ul role="list" className="nav-menu w-list-unstyled">
-                <li className="list-item"><Link href="#topbar" className="nav-link">Home</Link>
-                  <div className="nav-hover-border" style={{transform: 'translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                  </div>
-                </li>
-                <li className="list-item"><Link href="#best-service" className="nav-link">Services</Link>
-                  <div className="nav-hover-border" style={{transform: 'translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                  </div>
-                </li>
-                <li className="list-item"><Link href="#portfolio" className="nav-link">Portfolio</Link>
-                  <div className="nav-hover-border" style={{transform: 'translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                  </div>
-                </li>
-                <li className="list-item"><Link href="#contact" className="nav-link nav-last-link">Contact Us</Link>
-                  <div className="nav-hover-border" style={{transform: 'translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                  </div>
-                </li>
-              </ul>
-            </nav>
-            <div className="menu-button w-nav-button" style={{WebkitUserSelect: 'text'}} aria-label="menu" role="button" tabIndex={0} aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
-              <div className="w-icon-nav-menu" />
-            </div>
-          </div>
-        </div>
-        <div className="w-nav-overlay" data-wf-ignore id="w-nav-overlay-0">
-          <nav role="navigation" className="nav-menu-wrapper w-nav-menu" style={{transform: 'translateY(0px) translateX(0px)', transition: 'transform 400ms ease 0s'}} data-nav-menu-open>
-            <ul role="list" className="nav-menu w-list-unstyled">
-              <li className="list-item"><Link href="#topbar" className="nav-link">Home</Link>
-                <div className="nav-hover-border" style={{transform: 'translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                </div>
-              </li>
-              <li className="list-item"><Link href="#best-service" className="nav-link">Services</Link>
-                <div className="nav-hover-border" style={{transform: 'translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                </div>
-              </li>
-              <li className="list-item"><Link href="#portfolio" className="nav-link">Portfolio</Link>
-                <div className="nav-hover-border" style={{transform: 'translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                </div>
-              </li>
-              <li className="list-item"><Link href="#contact" className="nav-link nav-last-link">Contact Us</Link>
-                <div className="nav-hover-border" style={{transform: 'translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                </div>
-              </li>
-              <li className="list-item responsive-show">
-                <div data-w-id="353b3f28-942b-381b-a4b2-3b6c071ac2d8" className="primary-button-wrapper responsive-show">
-                  <div className="primary-button-background" /><Link href="/#pricing" className="primary-button responsive-show w-button">Get Started</Link>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </section>
+    <Topbar />
   <section id="hero" data-w-id="97f5e500-feb5-6224-21cc-043d5e2588ab" className="hero-section">
     <div className="hero-glowing-block-right" />
     <div className="hero-glowing-block-left" />
@@ -229,13 +186,14 @@ export default function Home() {
     <section className="about-us-section">
       <div className="w-layout-blockcontainer container w-container">
         <div className="about-main-block">
-          <div className="w-layout-grid about-card-grid">
+          <div className="w-layout-grid about-card-grid" >
+            
             <div id="w-node-_3ca8203c-10cc-3041-11d5-61ad1e900716-f2fdab6b" className="about-card-wrapper">
               <div id="w-node-_3ca8203c-10cc-3041-11d5-61ad1e900717-f2fdab6b" className="about-card-block" style={{willChange: 'transform', transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 <div className="about-card-icon"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664739b340e0dcd9f074caa4_medal.svg" loading="lazy" alt="medal" /></div>
                 <div className="about-detail-block">
-                  <h4 className="about-card-heading">100+ Projects Complete</h4>
-                  <p className="about-card-description">Over 100 projects completed, showcasing our
+                  <h4 className="about-card-heading">30+ Projects Complete</h4>
+                  <p className="about-card-description">Over 30 projects completed, showcasing our
                     dedication to excellence and client satisfaction.</p>{/* <a href="/"
                                   aria-current="page" class="about-read-more-text w--current">Read More</a> */}
                 </div>
@@ -245,8 +203,8 @@ export default function Home() {
               <div id="w-node-_3ca8203c-10cc-3041-11d5-61ad1e900722-f2fdab6b" className="about-card-block" style={{willChange: 'transform', transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0.0032deg) rotateY(0.0034deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 <div className="about-card-icon"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664739b340e0dcd9f074cab7_users-round.svg" loading="lazy" alt="users" /></div>
                 <div className="about-detail-block">
-                  <h4 className="about-card-heading">50+ Experts</h4>
-                  <p className="about-card-description">Our 50+ power-packed team embodies diversity,
+                  <h4 className="about-card-heading">40+ Experts</h4>
+                  <p className="about-card-description">Our 40+ power-packed team embodies diversity,
                     talent and
                     collaboration, fueling our path towards innovation and success.
                   </p>{/*<a href="/"
@@ -258,7 +216,7 @@ export default function Home() {
               <div id="w-node-_3ca8203c-10cc-3041-11d5-61ad1e90072d-f2fdab6b" className="about-card-block" style={{willChange: 'transform', transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 <div className="about-card-icon"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664739b340e0dcd9f074cada_handshake.svg" loading="lazy" alt="handshake" /></div>
                 <div className="about-detail-block">
-                  <h4 className="about-card-heading">950+ Happy Clients</h4>
+                  <h4 className="about-card-heading">150+ Happy Clients</h4>
                   <p className="about-card-description">Testifying to our commitment, excellence, and
                     dedication in delivering satisfaction and value-driven solutions.</p>{/*<a href="/"
                                    aria-current="page" class="about-read-more-text w--current">Read More</a> */}
@@ -271,7 +229,7 @@ export default function Home() {
           </div>
           <div style={{opacity: 1}} className="about-text">
             <div>Our journey began with a passion for blending innovation,
-              <span className="about-gradient-text">aesthetics, and functionality to bring our clients&#39;
+              <span className="about-gradient-text"> aesthetics and functionality to bring our clients&#39;
                 digital
                 dreams to life.</span>
             </div>
@@ -453,13 +411,24 @@ export default function Home() {
     <section className="video-section">
       <div className="w-layout-blockcontainer container w-container">
         <div className="video-wrapper">
-          <div id="w-node-b2d4b9bc-92f4-01da-3b01-c5cb74a08b0e-f2fdab6b" data-w-id="b2d4b9bc-92f4-01da-3b01-c5cb74a08b0e" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} className="video-main-block"><Link href="#" className="video-lightbox w-inline-block w-lightbox" aria-label="open lightbox" aria-haspopup="dialog">
+          <video autoPlay loop muted className="video-main-block">
+            <source src="/assets/videos/v1.mp4" type="video/mp4"/>
+            {/* <Link href="#" className="video-lightbox w-inline-block w-lightbox" aria-label="open lightbox" aria-haspopup="dialog">
               <div></div>
               <div data-w-id="b2d4b9bc-92f4-01da-3b01-c5cb74a08b12" className="video-animation-ring" style={{opacity: '0.1999', transform: 'translate3d(0px, 0px, 0px) scale3d(1.5, 1.5, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', willChange: 'opacity'}}>
               </div>
-            </Link></div>
+            </Link> */}
+          </video>
+          {/* <div id="w-node-b2d4b9bc-92f4-01da-3b01-c5cb74a08b0e-f2fdab6b" data-w-id="b2d4b9bc-92f4-01da-3b01-c5cb74a08b0e" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} className="video-main-block">
+            <Link href="#" className="video-lightbox w-inline-block w-lightbox" aria-label="open lightbox" aria-haspopup="dialog">
+              <div></div>
+              <div data-w-id="b2d4b9bc-92f4-01da-3b01-c5cb74a08b12" className="video-animation-ring" style={{opacity: '0.1999', transform: 'translate3d(0px, 0px, 0px) scale3d(1.5, 1.5, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d', willChange: 'opacity'}}>
+              </div>
+            </Link>
+          </div> */}
           <div data-aos="fade-up" data-aos-duration={1500} className="section-heading-block">
-            <h2 className="all-section-heading mb-30">We Are Providing Best Business Service.</h2>
+            <p></p>
+            <h2 className="all-section-heading mt-20 mb-30">We Are Providing Best Business Service.</h2>
           </div>
           <div data-aos="fade-up" data-aos-duration={900} className="client-logo-marquee">
             <div className="client-marquee-shadow-left" />
@@ -518,7 +487,7 @@ export default function Home() {
                 </div>
               </Link></div>
             <div data-aos="zoom-in-up" data-aos-duration={1500} className="project-card w-dyn-item"><Link href="#" className="project-card-link-block w-inline-block">
-                <div className="project-image-block"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66473f89c181bbc09fe33c57_664324167f2f9a59dd851553_project%2520thumbnail%252003.webp" loading="lazy" style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} alt="project image" className="project-image" /></div>
+                <div className="project-image-block"><Image  width={200} height={200} src="/assets/images/industry.jpeg" loading="lazy" style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} alt="project image" className="project-image" /></div>
                 <div className="project-content-wrapper">
                   <h3 className="project-name-text">Industry Data Automation</h3>
                 </div>
@@ -551,13 +520,13 @@ export default function Home() {
           <div className="contact-form-block w-form">
             <form onSubmit={handleFormSubmit} id="wf-form-Contact-Form" name="wf-form-Contact-Form" data-name="Contact Form" method="post" className="contact-form" data-wf-page-id="66472edde48c1d48f2fdab6b" data-wf-element-id="4fa1eb97-c584-1d4e-9d07-53e04a751b82" aria-label="Contact Form">
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b83" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                <label htmlFor="Your-Name" className="contact-form-label">Your Name</label><input value={formData.f1} name="f1" onChange={handleChange} className="input-text-field w-input" maxLength={256} data-name="Your Name" placeholder="Enter your name" type="text" id="Your-Name" required />
+                <label htmlFor="Your-Name" className="contact-form-label">Your Name</label><input value={formData.name} name="name" onChange={handleChange} className="input-text-field w-input" maxLength={256} data-name="Your Name" placeholder="Enter your name" type="text" id="Your-Name" required />
               </div>
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b87" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                <label htmlFor="Your-Email" className="contact-form-label">E-mail Id</label><input value={formData.f2} name="f2" onChange={handleChange} className="input-text-field w-input" maxLength={256} data-name="Your Email" placeholder="Enter Your e-mail id" type="email" id="Your-Email" required />
+                <label htmlFor="Your-Email" className="contact-form-label">E-mail Id</label><input value={formData.email} name="email" onChange={handleChange} className="input-text-field w-input" maxLength={256} data-name="Your Email" placeholder="Enter Your e-mail id" type="email" id="Your-Email" required />
               </div>
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b8b" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                <label htmlFor="Our-Service" className="contact-form-label">Selet your service</label><select value={formData.f3} name="f3" onChange={handleChange} id="Our-Service" data-name="Our Service" required className="form-select-field select-block w-select">
+                <label htmlFor="Our-Service" className="contact-form-label">Selet your service</label><select value={formData.service} name="service" onChange={handleChange} id="Our-Service" data-name="Our Service" required className="form-select-field select-block w-select">
                   <option value>Select Service</option>
                   <option value="Custom Web Design">Custom Web Design</option>
                   <option value="Custom app Design">Custom App Design</option>
@@ -582,7 +551,7 @@ export default function Home() {
                 </select>
               </div>
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b8f" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                <label htmlFor="Your-Message" className="contact-form-label">message</label><textarea value={formData.f4} onChange={handleChange} id="Your-Message" name="f4" maxLength={5000} data-name="Your Message" placeholder="Enter Your Message" className="input-text-field h-155 w-input" />
+                <label htmlFor="Your-Message" className="contact-form-label">message</label><textarea value={formData.message} onChange={handleChange} id="Your-Message" name="message" maxLength={5000} data-name="Your Message" placeholder="Enter Your Message" className="input-text-field h-155 w-input" />
               </div>
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b93" className="submit-button-wrapper" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 <div className="submit-gradient-hover-block" style={{transform: 'translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
