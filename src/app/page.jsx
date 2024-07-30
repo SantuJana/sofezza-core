@@ -226,7 +226,7 @@ export default function Home() {
             </div>
           </div>
           <div style={{opacity: 1}} className="about-text">
-            <div>We aim to be the catalyst for a future where <span className="about-gradient-text">technology drives meaningful change.</span> Our journey started with a deep passion for merging <span className="about-gradient-text">innovation, aesthetics, and functionality</span> to turn our clients' digital visions into reality</div>
+            <div>We aim to be the catalyst for a future where <span className="about-gradient-text">technology drives meaningful change.</span> Our journey started with a deep passion for merging <span className="about-gradient-text">innovation, aesthetics, and functionality</span> to turn our clients&#39; digital visions into reality</div>
           </div>
           {/* <div style={{opacity: 1}} className="about-text">
             <div>Our journey began with a passion for blending innovation,
