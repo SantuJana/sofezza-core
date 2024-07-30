@@ -9,6 +9,7 @@ import { useState } from "react"
 import Cursor from "@/components/Cursor"
 import Tilt from "vanilla-tilt-react";
 import Topbar from "@/components/Topbar"
+import {WhatsAppOutlined} from '@ant-design/icons'
 
 export default function Home() {
   const [formData, setFormData] = useState({name:'', email: '', service: '', message: ''})
@@ -107,7 +108,7 @@ export default function Home() {
             <div role="listitem" className="service-collection-item w-dyn-item">
               <Link href="#" className="service-wrapper w-inline-block" style={{borderColor: 'rgba(66, 66, 66, 0)', backgroundColor: 'rgba(51, 51, 51, 0)'}}>
                 <div data-w-id="0927f5f9-b39e-f361-fb8e-0c027b224fc6" className="service-image" style={{willChange: 'transform', transform: 'translate3d(0.004px, -0.002px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                  <Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d07c6a11470943cdc30_service%2001.webp" alt="service images" sizes="(max-width: 479px) 96vw, (max-width: 767px) 328px, (max-width: 991px) 48vw, (max-width: 1279px) 200px, (max-width: 1439px) 230px, 250px" srcSet="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d07c6a11470943cdc30_service%2001-p-500.webp 500w, https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d07c6a11470943cdc30_service%2001.webp 697w" />
+                  <Image  width={200} height={200} src="/assets/images/website.png" alt="service images" sizes="(max-width: 479px) 96vw, (max-width: 767px) 328px, (max-width: 991px) 48vw, (max-width: 1279px) 200px, (max-width: 1439px) 230px, 250px" />
                 </div>
                 <div className="service-block">
                   <div className="service-text-block">
@@ -125,7 +126,7 @@ export default function Home() {
               </Link></div>
             <div role="listitem" className="service-collection-item w-dyn-item"><Link data-w-id="0927f5f9-b39e-f361-fb8e-0c027b224fc5" href="#" className="service-wrapper w-inline-block" style={{borderColor: 'rgba(66, 66, 66, 0)', backgroundColor: 'rgba(51, 51, 51, 0)'}}>
                 <div data-w-id="0927f5f9-b39e-f361-fb8e-0c027b224fc6" className="service-image" style={{willChange: 'transform', transform: 'translate3d(0.004px, -0.002px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                  <Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d10c01c5e5ab754a737_service%2002.webp" alt="service images" sizes="(max-width: 479px) 96vw, (max-width: 767px) 328px, (max-width: 991px) 48vw, (max-width: 1279px) 200px, (max-width: 1439px) 230px, 250px" srcSet="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d10c01c5e5ab754a737_service%2002-p-500.webp 500w, https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d10c01c5e5ab754a737_service%2002.webp 750w" />
+                  <Image  width={200} height={200} src="/assets/images/webdesign.jpeg" alt="service images" sizes="(max-width: 479px) 96vw, (max-width: 767px) 328px, (max-width: 991px) 48vw, (max-width: 1279px) 200px, (max-width: 1439px) 230px, 250px" />
                 </div>
                 <div className="service-block">
                   <div className="service-text-block">
@@ -143,7 +144,7 @@ export default function Home() {
               </Link></div>
             <div role="listitem" className="service-collection-item w-dyn-item"><Link data-w-id="0927f5f9-b39e-f361-fb8e-0c027b224fc5" href="#" className="service-wrapper w-inline-block" style={{borderColor: 'rgba(66, 66, 66, 0)', backgroundColor: 'rgba(51, 51, 51, 0)'}}>
                 <div data-w-id="0927f5f9-b39e-f361-fb8e-0c027b224fc6" className="service-image" style={{willChange: 'transform', transform: 'translate3d(0.004px, 0.002px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                  <Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d182eef6f6ffcfe5d67_service%2003.webp" alt="service images" sizes="(max-width: 479px) 96vw, (max-width: 767px) 328px, (max-width: 991px) 48vw, (max-width: 1279px) 200px, (max-width: 1439px) 230px, 250px" srcSet="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d182eef6f6ffcfe5d67_service%2003-p-500.webp 500w, https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d182eef6f6ffcfe5d67_service%2003.webp 750w" />
+                  <Image  width={200} height={200} src="/assets/images/appdevelopment.png" alt="service images" sizes="(max-width: 479px) 96vw, (max-width: 767px) 328px, (max-width: 991px) 48vw, (max-width: 1279px) 200px, (max-width: 1439px) 230px, 250px" />
                 </div>
                 <div className="service-block">
                   <div className="service-text-block">
@@ -160,7 +161,7 @@ export default function Home() {
               </Link></div>
             <div role="listitem" className="service-collection-item w-dyn-item"><Link data-w-id="0927f5f9-b39e-f361-fb8e-0c027b224fc5" href="#" className="service-wrapper w-inline-block" style={{borderColor: 'rgba(66, 66, 66, 0)', backgroundColor: 'rgba(51, 51, 51, 0)'}}>
                 <div data-w-id="0927f5f9-b39e-f361-fb8e-0c027b224fc6" className="service-image" style={{willChange: 'transform', transform: 'translate3d(0.004px, -0.002px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                  <Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d1fc9e04e7661691994_service%2004.webp" alt="service images" sizes="(max-width: 479px) 96vw, (max-width: 767px) 328px, (max-width: 991px) 48vw, (max-width: 1279px) 200px, (max-width: 1439px) 230px, 250px" srcSet="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d1fc9e04e7661691994_service%2004-p-500.webp 500w, https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66542d1fc9e04e7661691994_service%2004.webp 750w" />
+                  <Image  width={200} height={200} src="/assets/images/webdevelopment.jpeg" alt="service images" sizes="(max-width: 479px) 96vw, (max-width: 767px) 328px, (max-width: 991px) 48vw, (max-width: 1279px) 200px, (max-width: 1439px) 230px, 250px" />
                 </div>
                 <div className="service-block">
                   <div className="service-text-block">
@@ -192,8 +193,8 @@ export default function Home() {
               <div id="w-node-_3ca8203c-10cc-3041-11d5-61ad1e900717-f2fdab6b" className="about-card-block" style={{willChange: 'transform', transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 <div className="about-card-icon"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664739b340e0dcd9f074caa4_medal.svg" loading="lazy" alt="medal" /></div>
                 <div className="about-detail-block">
-                  <h4 className="about-card-heading">30+ Projects Complete</h4>
-                  <p className="about-card-description">Over 30 projects completed, showcasing our
+                  <h4 className="about-card-heading">10+ Projects Complete</h4>
+                  <p className="about-card-description">Over 10 projects completed, showcasing our
                     dedication to excellence and client satisfaction.</p>{/* <a href="/"
                                   aria-current="page" class="about-read-more-text w--current">Read More</a> */}
                 </div>
@@ -203,8 +204,8 @@ export default function Home() {
               <div id="w-node-_3ca8203c-10cc-3041-11d5-61ad1e900722-f2fdab6b" className="about-card-block" style={{willChange: 'transform', transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0.0032deg) rotateY(0.0034deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 <div className="about-card-icon"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664739b340e0dcd9f074cab7_users-round.svg" loading="lazy" alt="users" /></div>
                 <div className="about-detail-block">
-                  <h4 className="about-card-heading">40+ Experts</h4>
-                  <p className="about-card-description">Our 40+ power-packed team embodies diversity,
+                  <h4 className="about-card-heading">22+ Experts</h4>
+                  <p className="about-card-description">Our 22+ power-packed team embodies diversity,
                     talent and
                     collaboration, fueling our path towards innovation and success.
                   </p>{/*<a href="/"
@@ -216,7 +217,7 @@ export default function Home() {
               <div id="w-node-_3ca8203c-10cc-3041-11d5-61ad1e90072d-f2fdab6b" className="about-card-block" style={{willChange: 'transform', transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 <div className="about-card-icon"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664739b340e0dcd9f074cada_handshake.svg" loading="lazy" alt="handshake" /></div>
                 <div className="about-detail-block">
-                  <h4 className="about-card-heading">150+ Happy Clients</h4>
+                  <h4 className="about-card-heading">46+ Happy Clients</h4>
                   <p className="about-card-description">Testifying to our commitment, excellence, and
                     dedication in delivering satisfaction and value-driven solutions.</p>{/*<a href="/"
                                    aria-current="page" class="about-read-more-text w--current">Read More</a> */}
@@ -225,15 +226,15 @@ export default function Home() {
             </div>
           </div>
           <div style={{opacity: 1}} className="about-text">
-            <div>We aspire to be the driving force behind a future where application is <span className="about-gradient-text">a powerful catalyst to change the world.</span></div>
+            <div>We aim to be the catalyst for a future where <span className="about-gradient-text">technology drives meaningful change.</span> Our journey started with a deep passion for merging <span className="about-gradient-text">innovation, aesthetics, and functionality</span> to turn our clients' digital visions into reality</div>
           </div>
-          <div style={{opacity: 1}} className="about-text">
+          {/* <div style={{opacity: 1}} className="about-text">
             <div>Our journey began with a passion for blending innovation,
               <span className="about-gradient-text"> aesthetics and functionality to bring our clients&#39;
                 digital
                 dreams to life.</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
@@ -475,19 +476,19 @@ export default function Home() {
         <div className="w-dyn-list">
           <div role="list" className="project-collection-list w-dyn-items">
             <div data-aos="zoom-in-up" data-aos-duration={1500} className="project-card w-dyn-item"><Link href="#" className="project-card-link-block w-inline-block">
-                <div className="project-image-block"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66473fc1d452bf651ef839d1_664323457f0a0728fdc1a74f_Img%2520(6).webp" loading="lazy" style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} alt="project image" className="project-image" /></div>
+                <div className="project-image-block"><Image  width={200} height={200} src="/assets/images/courier.jpg" loading="lazy" style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} alt="project image" className="project-image" /></div>
                 <div className="project-content-wrapper">
                   <h3 className="project-name-text">Courier Service</h3>
                 </div>
               </Link></div>
             <div data-aos="zoom-in-up" data-aos-duration={1500} className="project-card w-dyn-item"><Link href="#" className="project-card-link-block w-inline-block">
-                <div className="project-image-block"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab99/66473fa8ba2bcbba1d0f2d06_66432403e3e38dcc865d79b1_project%2520thumbnail%252002.webp" loading="lazy" style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} alt="project image" className="project-image" /></div>
+                <div className="project-image-block"><Image  width={200} height={200} src="/assets/images/ecommerce.jpg" loading="lazy" style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} alt="project image" className="project-image" /></div>
                 <div className="project-content-wrapper">
                   <h3 className="project-name-text">E-Commerce</h3>
                 </div>
               </Link></div>
             <div data-aos="zoom-in-up" data-aos-duration={1500} className="project-card w-dyn-item"><Link href="#" className="project-card-link-block w-inline-block">
-                <div className="project-image-block"><Image  width={200} height={200} src="/assets/images/industry.jpeg" loading="lazy" style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} alt="project image" className="project-image" /></div>
+                <div className="project-image-block"><Image  width={200} height={200} src="/assets/images/industry.jpg" loading="lazy" style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}} alt="project image" className="project-image" /></div>
                 <div className="project-content-wrapper">
                   <h3 className="project-name-text">Industry Data Automation</h3>
                 </div>
@@ -601,24 +602,27 @@ export default function Home() {
               <div className="footer-link-heading" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 Links</div>
               <div className="footer-link-block">
-                <Link href="#" className="footer-navigation-ink" data-aos="fade-up" data-aos-duration={1200}>Login</Link>
-                <Link href="#contact" className="footer-navigation-ink" data-aos="fade-up" data-aos-duration={1500}>Sign Up</Link>
+                <Link href="#" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={1200}>Login</Link>
+                <Link href="#contact" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={1500}>Sign Up</Link>
               </div>
             </div>
             <div id="w-node-c1540238-1c14-59eb-cb03-9665c449d13f-c449d11b" className="footer-detail-wrapper">
               <div className="footer-link-heading" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 Follow Us</div>
               <div className="footer-link-block">
-                <Link href="https://www.facebook.com/" target="_blank" className="footer-navigation-ink" data-aos="fade-up" data-aos-duration={1200}>
+                <Link href="https://www.whatsapp.com/" target="_blank" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={1200}>
+                  <span className="footer-social-icon"><WhatsAppOutlined /></span>Whatsapp
+                </Link>
+                <Link href="https://www.facebook.com/" target="_blank" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={1200}>
                   <span className="footer-social-icon"></span>Facebook
                 </Link>
-                <Link href="https://twitter.com/?lang=en" target="_blank" className="footer-navigation-ink" data-aos="fade-up" data-aos-duration={1500}>
+                <Link href="https://twitter.com/?lang=en" target="_blank" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={1500}>
                   <span className="footer-social-icon"></span>Twitter
                 </Link>
-                <Link href="https://in.linkedin.com/" target="_blank" className="footer-navigation-ink" data-aos="fade-up" data-aos-duration={1800}>
+                <Link href="https://in.linkedin.com/" target="_blank" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={1800}>
                   <span className="footer-social-icon"></span>LinkedIn
                 </Link>
-                <Link href="https://www.instagram.com/" target="_blank" className="footer-navigation-ink" data-aos="fade-up" data-aos-duration={2100}>
+                <Link href="https://www.instagram.com/" target="_blank" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={2100}>
                   <span className="footer-social-icon"></span>Instagram
                 </Link>
               </div>
@@ -627,14 +631,14 @@ export default function Home() {
               <div className="footer-link-heading" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 Address</div>
               <div className="footer-link-block">
-                <Link href="https://www.google.com/maps/place/DLF+1/@22.581431,88.4459559,17z/data=!4m10!1m2!2m1!1sDLF!3m6!1s0x3a027511e6954073:0xb42b85244a17cd5a!8m2!3d22.581431!4d88.450462!15sCgNETEYiA4gBAZIBCGJ1c19zdG9w4AEA!16s%2Fg%2F11j0b475l2?entry=ttu" target="_blank" className="footer-navigation-ink footer-address" data-aos="fade-up" data-aos-duration={1200}>
+                <Link href="https://www.google.com/maps/place/DLF+1/@22.581431,88.4459559,17z/data=!4m10!1m2!2m1!1sDLF!3m6!1s0x3a027511e6954073:0xb42b85244a17cd5a!8m2!3d22.581431!4d88.450462!15sCgNETEYiA4gBAZIBCGJ1c19zdG9w4AEA!16s%2Fg%2F11j0b475l2?entry=ttu" target="_blank" className="footer-navigation-ink footer-address" data-aos="fade-down" data-aos-duration={1200}>
                   <span className="footer-address-icon"></span>Action Area 1A, Newtown, New Town, West Bengal 700156
                 </Link>
-                <Link href="tel:(+91)9099990999" className="footer-navigation-ink" data-aos="fade-up" data-aos-duration={1500}>
-                  <span className="footer-address-icon"></span>(+91) 70594 80293
+                <Link href="tel:(+91)9099990999" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={1500}>
+                  <span className="footer-address-icon"></span>(+91) 70594 80293/(+91) 8250844290
                 </Link>
-                <Link href="mailto:sofezzacore@gmail.com" className="footer-navigation-ink" data-aos="fade-up" data-aos-duration={1800}>
-                  <span className="footer-address-icon"></span>demo@sofezzacore.com
+                <Link href="mailto:sofezzacore@gmail.com" className="footer-navigation-ink" data-aos="fade-down" data-aos-duration={1800}>
+                  <span className="footer-address-icon"></span>support@sofezzacore.com
                 </Link>
               </div>
             </div>
@@ -671,6 +675,9 @@ export default function Home() {
   </Link>
   {/* Scripts Start */}
 </div>
+                <Link href="https://www.whatsapp.com/" target="_blank" className="whatsapp-fixed" >
+                  <span className=""><WhatsAppOutlined style={{fontSize: 24, color: 'white', position: 'fixed', left: 25, bottom: 26, backgroundColor: '#28D146', height: 50, width: 50, borderRadius: '50%', display: 'flex', justifyContent: 'center', cursor: 'pointer', zIndex: 1000}}/></span>
+                </Link>
 
     </>
   );
