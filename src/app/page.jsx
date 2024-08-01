@@ -604,10 +604,10 @@ export default function Home() {
               <div className="footer-link-heading" style={{ opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d' }}>
                 Links</div>
               <div className="footer-link-block">
-                <Link href="#" className="footer-navigation-ink" data-aos="fade-down" >About Us</Link>
-                <ScrollLink to="best-service" className="footer-navigation-ink" data-aos="fade-down" >Services</ScrollLink>
-                <ScrollLink to="contact" className="footer-navigation-ink" data-aos="fade-down" >Contact Us</ScrollLink>
-                <Link href="#" className="footer-navigation-ink" data-aos="fade-down" >Feedback</Link>
+                <Link href="#" className="footer-navigation-ink" >About Us</Link>
+                <ScrollLink to="best-service" className="footer-navigation-ink" >Services</ScrollLink>
+                <ScrollLink to="contact" className="footer-navigation-ink" >Contact Us</ScrollLink>
+                <Link href="#" className="footer-navigation-ink" >Feedback</Link>
               </div>
             </div>
             <div id="w-node-c1540238-1c14-59eb-cb03-9665c449d13f-c449d11b" className="footer-detail-wrapper">
