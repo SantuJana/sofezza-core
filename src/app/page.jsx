@@ -15,6 +15,7 @@ import BottomBar from "@/components/BottomBar"
 
 export default function Home() {
   const [formData, setFormData] = useState({name:'', email: '', service: '', message: ''})
+  const year = new Date().getFullYear()
   
   const handleFormSubmit = async (e) => {
     e.preventDefault()
@@ -653,7 +654,7 @@ export default function Home() {
         </div>
         <div data-w-id="c1540238-1c14-59eb-cb03-9665c449d163" className="footer-copyright-section">
           <div data-w-id="c1540238-1c14-59eb-cb03-9665c449d164" className="copyright-text" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-            ©IT Services #1 IT Services provider.</div>
+            © Sofezza Core | {year}</div>
         </div>
         <div className="all-blur-icons footer-section-icon"><Image  width={200} height={200} src="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664736bad9735c6491713562_all%20bg%20icon.webp" loading="lazy" sizes="(max-width: 767px) 100px, (max-width: 991px) 130px, 150px" srcSet="https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664736bad9735c6491713562_all%20bg%20icon.webp 500w, https://cdn.prod.website-files.com/66472edde48c1d48f2fdab67/664736bad9735c6491713562_all%20bg%20icon.webp 779w" alt="bg icon" /></div>
       </div></footer>

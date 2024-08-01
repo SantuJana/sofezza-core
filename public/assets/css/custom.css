@@ -5596,6 +5596,10 @@ figcaption {
         width: 100%;
     }
 
+    .service-collection-item{
+        border-radius: 16px;
+      }
+
     .list-item.responsive-show {
         justify-content: flex-start;
         align-items: flex-start;

@@ -53,13 +53,13 @@ export default function Topbar() {
         <div className="w-nav-overlay" data-wf-ignore id="w-nav-overlay-0" style={{display: mobileMenu ? 'block' : 'none', minHeight: 300, marginTop: 5}}>
           <nav role="navigation" className="nav-menu-wrapper w-nav-menu" style={{transform: 'translateY(0px) translateX(0px)', transition: 'transform 400ms ease 0s'}} data-nav-menu-open>
             <ul role="list" className="nav-menu w-list-unstyled">
-              <li className="list-item"><ScrollLink spy={true} activeClass='active-menu' to="topbar" className={`nav-link-bottom`}>Home</ScrollLink>
+              <li className="list-item"><ScrollLink onClick={toggleMenu} spy={true} activeClass='active-menu' to="topbar" className={`nav-link-bottom`}>Home</ScrollLink>
               </li>
-              <li className="list-item"><ScrollLink spy={true} activeClass='active-menu' to="best-service" className={`nav-link-bottom`}>Services</ScrollLink>
+              <li className="list-item"><ScrollLink onClick={toggleMenu} spy={true} activeClass='active-menu' to="best-service" className={`nav-link-bottom`}>Services</ScrollLink>
               </li>
-              <li className="list-item"><ScrollLink spy={true} activeClass='active-menu' to="portfolio" className={`nav-link-bottom`}>Portfolio</ScrollLink>
+              <li className="list-item"><ScrollLink onClick={toggleMenu} spy={true} activeClass='active-menu' to="portfolio" className={`nav-link-bottom`}>Portfolio</ScrollLink>
               </li>
-              <li className="list-item"><ScrollLink spy={true} activeClass='active-menu' to="contact" className={`nav-last-link nav-link-bottom`}>Contact Us</ScrollLink>
+              <li className="list-item"><ScrollLink onClick={toggleMenu} spy={true} activeClass='active-menu' to="contact" className={`nav-last-link nav-link-bottom`}>Contact Us</ScrollLink>
               </li>
             </ul>
           </nav>
