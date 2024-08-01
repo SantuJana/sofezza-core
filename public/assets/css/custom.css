@@ -885,7 +885,30 @@ textarea.w-select {
     display: none !important;
 }
 
+.sofezza_menu {
+    padding-bottom: 150px;
+}
+
+.float-btn-whatsapp {
+    font-size: 24px;
+    color: white;
+    position: fixed;
+    left: 25px;
+    bottom: 26px;
+    background-color: #28D146;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
 @media screen and (max-width: 991px) {
+    .w-nav-overlay {
+        visibility: visible !important;
+    }
     .w-container {
         max-width: 728px;
     }
@@ -1028,6 +1051,14 @@ textarea.w-select {
 @media screen and (max-width: 479px) {
     .w-container {
         max-width: none;
+    }
+
+    .float-btn-whatsapp {
+        right: 20px;
+        left: auto;
+        bottom: 130px;
+        height: 40px;
+        width: 40px;
     }
 
     .w-hidden-main,
@@ -2043,6 +2074,7 @@ textarea.w-select {
 .w-nav-overlay {
     width: 100%;
     display: none;
+    visibility: hidden;
     position: absolute;
     top: 100%;
     left: 0;
@@ -2561,6 +2593,7 @@ figcaption {
     text-decoration: none;
     transition: color .3s;
     display: flex;
+    cursor: pointer;
 }
 
 .footer-navigation-ink:hover {
@@ -2701,6 +2734,8 @@ figcaption {
     color: #555;
     text-decoration: none;
     transition: color .3s;
+    text-wrap: nowrap;
+    cursor: pointer;
 }
 
 .nav-link:hover {
@@ -2717,7 +2752,7 @@ figcaption {
 }
 
 .nav-menu {
-    grid-column-gap: 50px;
+    grid-column-gap: 10px;
     grid-row-gap: 50px;
     justify-content: space-between;
     align-items: center;
@@ -2767,7 +2802,6 @@ figcaption {
 }
 
 .hero-section {
-    padding-top: 204px;
     padding-bottom: 158px;
     position: relative;
     overflow: hidden;
@@ -4343,6 +4377,8 @@ figcaption {
     text-decoration: none;
     transition: background-color .3s;
     display: block;
+    cursor: pointer;
+    text-wrap: nowrap;
 }
 
 .nav-link-bottom:hover {
@@ -5673,7 +5709,10 @@ figcaption {
     }
 
     .hero-section {
-        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .sofezza_menu {
         padding-bottom: 100px;
     }
 
@@ -6393,7 +6432,10 @@ figcaption {
     }
 
     .hero-section {
-        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .sofezza_menu {
         padding-bottom: 80px;
     }
 
@@ -7013,11 +7055,14 @@ figcaption {
     }
 
     .navbar-logo img {
-        width: 80%;
+        width: 60%;
     }
 
     .hero-section {
-        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .sofezza_menu {
         padding-bottom: 40px;
     }
 
@@ -7451,7 +7496,7 @@ figcaption {
         height: 40px;
         font-size: 18px;
         line-height: 18px;
-        bottom: 25px;
+        bottom: 75px;
     }
 
     .nav-menu-wrapper-bottom {
@@ -7462,7 +7507,7 @@ figcaption {
     .nav-menu-bottom {
         justify-content: space-between;
         align-items: center;
-        width: 480px;
+        width: auto;
     }
 
     .nav-link-bottom {
@@ -7897,4 +7942,9 @@ figcaption {
 
 .mt-20 {
     margin-top: 20px;
+}
+
+.active-menu {
+    color: #f5f5f5;
+    background-color: #f870be;
 }
