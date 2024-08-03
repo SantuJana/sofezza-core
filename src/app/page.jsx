@@ -5,40 +5,60 @@ import '../../public/assets/css/aos.css'
 import '../../public/assets/css/custom.css'
 import '../../public/assets/css/responsive.css'
 import { message } from "antd"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Cursor from "@/components/Cursor"
 import Tilt from "vanilla-tilt-react";
 import Topbar from "@/components/Topbar"
-import {WhatsAppOutlined} from '@ant-design/icons'
+import {WhatsAppOutlined, LoadingOutlined, PaperClipOutlined} from '@ant-design/icons'
 import { Element, Link as ScrollLink } from "react-scroll"
 import BottomBar from "@/components/BottomBar"
+import PhoneInput from "@/components/PhoneInput"
 
 export default function Home() {
-  const [formData, setFormData] = useState({name:'', email: '', service: '', message: ''})
+  const mobileRef = useRef('')
+  const attachmentRef = useRef()
+  const initialValue = {name:'', email: '', mobile: '', service: '', message: '', other: '', file: null}
+  const [formData, setFormData] = useState(initialValue)
   const year = new Date().getFullYear()
+  const [isLoading, setLoading] = useState(false)
   
   const handleFormSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+    let formDataNew = new FormData()
+    formDataNew.append('name', formData.name || null)
+    formDataNew.append('email', formData.email || null)
+    formDataNew.append('mobile', mobileRef.current.getNumber())
+    formDataNew.append('service', formData.service || null)
+    formDataNew.append('message', formData.message || null)
+    formDataNew.append('other', formData.other || null)
+    formDataNew.append('file', formData.file || null)
+    
     fetch('/api/contactus', {
       method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(formData)
+      body: formDataNew
     })
     .then(response => response.json())
     .then(response => {
       console.log(response);
       message.success(response.message)
-      setFormData({name:'', email: '', service: '', message: ''})
+      setFormData(initialValue)
     })
     .catch( error => {
       message.error('Failed to send your concern')
     })
+    .then(()=> setLoading(false))
   }
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value})
+  }
+
+  const handleAttachmentChange = (e) => {
+    const file = e.target.files[0]
+    if (file){
+      setFormData({...formData, file })
+    }
   }
 
   return (
@@ -524,13 +544,20 @@ export default function Home() {
           <div className="contact-form-block w-form">
             <form onSubmit={handleFormSubmit} id="wf-form-Contact-Form" name="wf-form-Contact-Form" data-name="Contact Form" method="post" className="contact-form" data-wf-page-id="66472edde48c1d48f2fdab6b" data-wf-element-id="4fa1eb97-c584-1d4e-9d07-53e04a751b82" aria-label="Contact Form">
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b83" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                <label htmlFor="Your-Name" className="contact-form-label">Your Name</label><input value={formData.name} name="name" onChange={handleChange} className="input-text-field w-input" maxLength={256} data-name="Your Name" placeholder="Enter your name" type="text" id="Your-Name" required />
+                <label htmlFor="Your-Name" className="contact-form-label">Your Name</label>
+                <input value={formData.name} name="name" onChange={handleChange} className="input-text-field w-input" maxLength={256} data-name="Your Name" placeholder="Enter your name" type="text" id="Your-Name" required />
               </div>
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b87" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                <label htmlFor="Your-Email" className="contact-form-label">E-mail Id</label><input value={formData.email} name="email" onChange={handleChange} className="input-text-field w-input" maxLength={256} data-name="Your Email" placeholder="Enter Your e-mail id" type="email" id="Your-Email" required />
+                <label htmlFor="Your-Email" className="contact-form-label">E-mail Id</label>
+                <input value={formData.email} name="email" onChange={handleChange} className="input-text-field w-input" maxLength={256} data-name="Your Email" placeholder="Enter Your e-mail id" type="email" id="Your-Email" required />
+              </div>
+              <div className="form-field-wrap">
+                <label htmlFor="Your-Phone" className="contact-form-label">Phone Number</label>
+                <PhoneInput value={formData.mobile} onChange={handleChange} mobileRef={mobileRef} />
               </div>
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b8b" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                <label htmlFor="Our-Service" className="contact-form-label">Selet your service</label><select value={formData.service} name="service" onChange={handleChange} id="Our-Service" data-name="Our Service" required className="form-select-field select-block w-select">
+                <label htmlFor="Our-Service" className="contact-form-label">Selet your service</label>
+                <select value={formData.service} name="service" onChange={handleChange} id="Our-Service" data-name="Our Service" required className="form-select-field select-block w-select">
                   <option value>Select Service</option>
                   <option value="Custom Web Design">Custom Web Design</option>
                   <option value="Custom app Design">Custom App Design</option>
@@ -554,12 +581,25 @@ export default function Home() {
                   <option value="Others">Others</option>
                 </select>
               </div>
+              {
+                formData.service == 'Others' &&
+                <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b8f" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
+                  <label htmlFor="Your-Message" className="contact-form-label">Explain your requirement</label>
+                  <textarea value={formData.other} onChange={handleChange} required={formData.service == 'Others'} id="Your-Message" name="other" maxLength={5000} data-name="Your Message" placeholder="Please describe your requirement" className="input-text-field w-input" />
+                </div>
+              }
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b8f" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                <label htmlFor="Your-Message" className="contact-form-label">message</label><textarea value={formData.message} onChange={handleChange} id="Your-Message" name="message" maxLength={5000} data-name="Your Message" placeholder="Enter Your Message" className="input-text-field h-155 w-input" />
+                <label htmlFor="Your-Message" className="contact-form-label">message</label>
+                <textarea value={formData.message} onChange={handleChange} id="Your-Message" name="message" maxLength={5000} data-name="Your Message" placeholder="Enter Your Message" className="input-text-field h-155 w-input" />
+              </div>
+              <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b8f" className="form-field-wrap" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
+                <label htmlFor="Your-Message" className="contact-form-label">Attachment</label>
+                <PaperClipOutlined onClick={()=>attachmentRef.current.click()} style={{fontSize: 24, cursor: 'pointer', marginRight: 10}} /> {formData?.file?.name}
+                <input ref={attachmentRef} onChange={handleAttachmentChange} type="file" placeholder="Give your attachment" className="input-text-field w-input" style={{display: 'none'}} />
               </div>
               <div data-w-id="4fa1eb97-c584-1d4e-9d07-53e04a751b93" className="submit-button-wrapper" style={{opacity: 1, transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
                 <div className="submit-gradient-hover-block" style={{transform: 'translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', transformStyle: 'preserve-3d'}}>
-                </div><input type="submit" data-wait="Submit..." className="from-submit-button w-button" defaultValue="Submit " />
+                </div>{ isLoading && <LoadingOutlined style={{fontSize: 18, marginLeft: 20}} />}<input type="submit" data-wait="Submit..." className="from-submit-button w-button" defaultValue="Submit " disabled={isLoading} />
               </div>
             </form>
             <div className="success-message w-form-done" tabIndex={-1} role="region" aria-label="Contact Form success">
